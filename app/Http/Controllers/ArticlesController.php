@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
-    //
+    //显示文章列表
     public function index()
     {
         $articles = Article::all();
@@ -20,6 +20,7 @@ class ArticlesController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
+    //文章详情
     public function show($id)
     {
         $article = Article::findOrFail($id);
@@ -27,4 +28,17 @@ class ArticlesController extends Controller
 
         return view ('articles.show', ['article' => $article]);
     }
+
+    //创建文章
+    public function create()
+    {
+        return view('articles.create');
+    }
+
+    //保存文章
+    public function store(Request $request)
+    {
+    
+    }
+
 }
