@@ -26,3 +26,8 @@ $article = App\Article::create(['title' => '维达','content'=>'what this', 'cti
 $first = App\Article::where('intro', '123')->get();
 $first = App\Article::find(1);
 $first = App\Article::where('intro', '123')->first();
+
+//清空配置缓存
+php artisan config:clear
+//生成缓存
+ php artisan config:cache

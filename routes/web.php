@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/hello', 'siteController@index');
 Route::get('/welcome', 'siteController@welcome');
 Route::get('contact', 'siteController@contact');
+
+Route::get('/articles', 'ArticlesController@index');
+Route::get('/article/{id}', 'ArticlesController@show');
