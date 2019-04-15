@@ -22,4 +22,5 @@ Route::get('contact', 'siteController@contact');
 
 Route::get('/articles', 'ArticlesController@index');
 Route::get('/article/create', 'ArticlesController@create');
+Route::post('/article/store', 'ArticlesController@store');
 Route::get('/article/{id}', 'ArticlesController@show');
