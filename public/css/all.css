@@ -266,6 +266,7 @@ h2 {
 .content {
   width: 100%;
   position: relative;
+  margin-top: 60px;
 }
 
 .pad {

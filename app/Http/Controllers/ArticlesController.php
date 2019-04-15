@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Article;
 
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 
-//use App\Http\Requests;
+use Request;
+
+use App\Http\Requests;
 
 //use App\Http\Controllers\Controller;
 
@@ -15,7 +17,7 @@ class ArticlesController extends Controller
     //显示文章列表
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::latest()->get();
 
         return view('articles.index', ['articles' => $articles]);
     }
@@ -36,9 +38,19 @@ class ArticlesController extends Controller
     }
 
     //保存文章
-    public function store(Request $request)
+    public function store()
     {
-    
+        $form = Request::all();
+        
+        $data['title'] = $form['title'];
+        $data['content'] = $form['content'];
+        $data['intro'] = mb_substr($form['content'],0,64);
+        $data['ctime'] = Carbon::now();
+        $bool = Article::create($data);
+
+        if (!$bool) return '数据保存异常';
+
+        return redirect('/articles');
     }
 
 }
