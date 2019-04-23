@@ -16,12 +16,23 @@
         </div>
 
         <div class="form-group">
-        {!! Form::label('ctime', '创建时间：')!!}
-        {!! Form::input('date', 'ctime', date('Y-m-d'), ['class' => 'form-controll']) !!}
+        {!! Form::label('published_time', '发布时间：')!!}
+        {!! Form::input('date', 'published_time', date('Y-m-d'), ['class' => 'form-controll']) !!}
         </div>
 
         <div class="form-group">
         {!! Form::submit('发表文章', ['class' => 'btn btn-success form-control'])!!}
         </div>
     {!! Form::close() !!}
+<h1>Create Post</h1>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @stop

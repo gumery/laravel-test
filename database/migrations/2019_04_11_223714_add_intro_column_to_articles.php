@@ -16,6 +16,7 @@ class AddIntroColumnToArticles extends Migration
         Schema::table('articles', function (Blueprint $table) {
             //
             $table->string('intro');
+            $table->timestamp('published_time');
         });
     }
 

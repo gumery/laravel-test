@@ -5,6 +5,10 @@
 <br/>
 <div><a href="{{ url('article/create') }}">创建新文章</a></div>
 <hr/>
+
+@if (!count($articles))
+<div style="text-algin:cener;">暂无数据</div>
+@else
 @foreach ($articles as $article)
 <article class="format-image group">
 
@@ -46,4 +50,5 @@
 
 </article>
 @endforeach
+@endif
 @stop
